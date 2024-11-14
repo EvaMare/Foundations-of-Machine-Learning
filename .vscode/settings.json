@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "day_01_exercise_intro"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
