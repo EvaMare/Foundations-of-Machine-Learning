@@ -1,0 +1,4 @@
+nox
+pytest
+numpy
+matplotlib
