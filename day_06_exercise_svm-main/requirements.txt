@@ -1,0 +1,6 @@
+nox
+numpy
+matplotlib
+scikit-learn
+scikit-image
+pandas
