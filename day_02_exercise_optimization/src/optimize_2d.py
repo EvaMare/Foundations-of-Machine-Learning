@@ -26,7 +26,7 @@ def grad_paraboloid(pos: np.ndarray) -> np.ndarray:
     Returns:
         np.ndarray: The gradient at position pos.
     """
-    # TODO: implement me!
+    return 2 * pos
     return np.zeros_like(pos)
 
 
@@ -44,8 +44,7 @@ if __name__ == "__main__":
     plt.colorbar()
 
     start_pos = np.array((2.9, -2.9))
-    step_size = 0.0  # TODO: choose your step size.
-    step_total = 1  # TODO: choose your step total.
+    step_size = 0.1  
 
     pos_list = [start_pos]
     for _ in range(step_total):

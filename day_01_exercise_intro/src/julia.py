@@ -33,9 +33,5 @@ if __name__ == "__main__":
     scaled = [[log10(val + 1e-12) for val in row] for row in mesh]
 
     plt.imshow(scaled, cmap="inferno", extent=[-0.5, 0.5, -0.5, 0.5])
-    plt.colorbar(label="Iteration Count (log scale)")
-    plt.title("Julia Fractal Set for c = (-0.07, 0.652)")
-    plt.xlabel("Re(z)")
-    plt.ylabel("Im(z)")
     plt.show()
 

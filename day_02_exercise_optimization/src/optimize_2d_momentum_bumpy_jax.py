@@ -32,8 +32,8 @@ def bumpy_function(pos: np.ndarray) -> np.ndarray:
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     from matplotlib import cm
-
-    # TODO: use jax to find the gradient.
+    
+    gradient_fn = jax.grad(bumpy_function) 
 
     nx, ny = (1001, 1001)
     x = np.linspace(-3, 3, nx)
@@ -52,13 +52,20 @@ if __name__ == "__main__":
     plt.colorbar()
 
     start_pos = np.array((2.9, -2.9))
-    step_size = 0.0  # TODO: Choose your step size.
-    alpha = 0.0  # TODO: Choose your momentum term.
+    step_size = 0.1
+    alpha = 0.9
     step_total = 100
 
     pos_list = [start_pos]
     grad = np.array((0.0, 0.0))
-    # TODO: Implement gradient descent with momentum.
+    velocity = np.array((0.0, 0.0)) #momentum term
+
+    for _ in range(step_total):
+        current_pos = pos_list[-1]
+        grad = gradient_fn(current_pos)  # Compute gradient at current position
+        velocity = alpha * velocity - step_size * grad  # Update velocity
+        new_pos = current_pos + velocity  # Update position
+        pos_list.append(new_pos)
 
     for pos in pos_list:
         plt.plot(pos[0], pos[1], ".r")
